@@ -73,7 +73,7 @@ Then open index.html in your browser.
 
 Add your project screenshot here.
 
-![Green Earth Screenshot](./assets/screenshot.png)
+![Green Earth Screenshot](./assets/Screenshot_5.png)
 👨‍💻 Author
 
 Abdul Wazed
