@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind + daisyUI -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font-awesome CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Green Earth</title>
+  </head>
+  <body>
+    <header class="bg-[#15803D]">
+      <div class="max-w-[1920px] mx-auto">
+        <div class="navbar bg-[#15803D] shadow-sm md:max-w-[95%] mx-auto">
+          <div class="navbar-start">
+            <div class="dropdown">
+              <div
+                tabindex="0"
+                role="button"
+                class="btn bg-[#15803D] border-0 shadow-2xl text-white lg:hidden"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 6h16M4 12h8m-8 6h16"
+                  />
+                </svg>
+              </div>
+              <ul
+                tabindex="-1"
+                class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li><a>About</a></li>
+                <li><a>Gallery</a></li>
+              </ul>
+            </div>
+            <a
+              onclick="location.reload()"
+              class="font-bold text-xl text-white cursor-pointer"
+              >Green Earth</a
+            >
+          </div>
+          <div class="navbar-center hidden lg:flex">
+            <ul class="menu menu-horizontal px-1">
+              <li class="text-white"><a>About</a></li>
+              <li class="text-white"><a>Gallery</a></li>
+            </ul>
+          </div>
+          <div class="navbar-end">
+            <a class="btn bg-[#FACC15] text-[#15803D] rounded-3xl"
+              >Plant a Tree</a
+            >
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- Banner section -->
+      <section class="max-w-[1920px] mx-auto bg-[#CFF0DC]">
+        <div
+          class="flex justify-between items-center mx-5 pt-15 md:pt-0 pb-15 md:pb-0"
+        >
+          <div class="hidden md:block mt-20">
+            <img src="assets/hero-leaf1.png" alt="" />
+          </div>
+
+          <div class="text-center">
+            <h2 class="text-[#1F2937] text-2xl lg:text-4xl font-bold">
+              Plant a Tree, Grow a Future
+            </h2>
+            <p class="text-[#1F2937] mt-5 mb-6">
+              Join our mission to plant 1 million trees and make the Earth
+              greener for future generations.
+            </p>
+            <button class="btn bg-[#FACC15] text-[#15803D] rounded-3xl">
+              Get Involved
+            </button>
+          </div>
+
+          <div class="hidden md:block mt-20">
+            <img src="assets/hero-leaf2.png" alt="" />
+          </div>
+        </div>
+      </section>
+      <!-- Choose Your Trees section -->
+      <section class="max-w-[1920px] mx-auto bg-[#DCFCE7] py-20">
+        <div class="max-w-[90%] mx-auto">
+          <div>
+            <h3 class="text-[#1F2937] font-bold text-center text-2xl pb-10">
+              Choose Your Trees
+            </h3>
+          </div>
+
+          <div
+            class="flex gap-5 md:gap-3 justify-between flex-wrap md:flex-nowrap"
+          >
+            <!-- Categories -->
+            <div class="order-1 md:order-1">
+              <div class="drawer lg:drawer-open">
+                <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+                <div
+                  class="drawer-content flex flex-col items-center justify-center"
+                >
+                  <!-- Page content here -->
+                  <label
+                    for="my-drawer-3"
+                    class="btn drawer-button bg-[#15803D] text-white lg:hidden"
+                  >
+                    <i class="fa-solid fa-angle-down"></i> Select Categories
+                  </label>
+                </div>
+                <div class="drawer-side">
+                  <label
+                    for="my-drawer-3"
+                    aria-label="close sidebar"
+                    class="drawer-overlay"
+                  ></label>
+                  <ul class="menu bg-base-200 min-h-full w-50 p-4">
+                    <!-- Sidebar content here -->
+                    <h3 class="text-[20px] font-semibold mb-5">Categories</h3>
+                    <div>
+                      <li id="all" class="bg-[#15803D] text-white rounded-lg">
+                        <a>All Trees</a>
+                      </li>
+                    </div>
+                    <div id="categories"></div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- Trees -->
+            <div class="order-3 md:order-2">
+              <!-- Tree Container -->
+              <div
+                id="trees"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3"
+              >
+                <!-- Card Tree will show here -->
+              </div>
+              <!-- Loading spinner -->
+              <div
+                id="loadingSpinner"
+                class="hidden justify-center items-center h-[60vh] text-center"
+              >
+                Loading...
+              </div>
+            </div>
+
+            <!-- Cart -->
+            <div class="order-2 md:order-3">
+              <div class="drawer drawer-end">
+                <input id="my-drawer-5" type="checkbox" class="drawer-toggle" />
+                <div class="drawer-content md:pr-17">
+                  <!-- Page content here -->
+                  <label
+                    id="cartBtn"
+                    for="my-drawer-5"
+                    class="drawer-button btn btn-primary"
+                    ><i class="fa-solid fa-cart-arrow-down"></i
+                    ><span id="cartCount">0</span></label
+                  >
+                </div>
+                <div class="drawer-side">
+                  <label
+                    for="my-drawer-5"
+                    aria-label="close sidebar"
+                    class="drawer-overlay"
+                  ></label>
+                  <ul class="menu bg-base-200 min-h-full w-65 p-4">
+                    <!-- Sidebar content here -->
+                    <h3 class="font-semibold text-xl mb-5">Your Cart</h3>
+                    <div id="cardContainer">
+                      <div>
+                        <hr class="px-3 my-5" />
+                        <div
+                          class="flex justify-between px-3 text-[#1F2937] font-semibold"
+                        >
+                          <p>Total:</p>
+                          <p>$1000</p>
+                        </div>
+                      </div>
+                    </div>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- About section -->
+      <section class="max-w-[1920px] mx-auto bg-[#F0FDF4] py-15">
+        <div class="max-w-[90%] mx-auto">
+          <div class="text-center">
+            <h3 class="text-[#1F2937] text-2xl mb-10 font-bold">
+              About the Campaign
+            </h3>
+          </div>
+          <div
+            class="flex flex-wrap gap-5 justify-center sm:justify-between items-center"
+          >
+            <div class="md:flex-1">
+              <img src="assets/about.png" alt="About" />
+            </div>
+            <div class="md:flex-1 text-[#1F2937]">
+              <p class="text-justify">
+                Green Earth is a global tree plantation initiative dedicated to
+                fighting climate change. Since our start, we've planted over
+                500,000 trees worldwide. By joining our campaign, you help
+                restore forests, create habitats for wildlife, and combat global
+                warming.
+              </p>
+              <ul class="list-disc pl-6 mt-5">
+                <li>Restoration of natural habitats</li>
+                <li>Improvement of air quality</li>
+                <li>Support for local communities</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Our impact -->
+      <section class="max-w-[1920px] mx-auto bg-[#CFF0DC] py-15">
+        <div class="max-w-[90%] mx-auto">
+          <div class="text-center">
+            <h3 class="text-[#1F2937] text-2xl mb-10 font-bold">Our Impact</h3>
+          </div>
+          <div
+            class="grid grid-cols-1 sm:grid-cols-3 gap-[50px] items-center text-center"
+          >
+            <div class="bg-white p-10 rounded-xl">
+              <p class="text-[#15803D] font-bold text-xl mb-3">500K+</p>
+              <p class="text-[#1F2937]">Trees Planted</p>
+            </div>
+            <div class="bg-white p-10 rounded-xl">
+              <p class="text-[#15803D] font-bold text-xl mb-3">120+</p>
+              <p class="text-[#1F2937]">Communities Involved</p>
+            </div>
+            <div class="bg-white p-10 rounded-xl">
+              <p class="text-[#15803D] font-bold text-xl mb-3">30+</p>
+              <p class="text-[#1F2937]">Countries Reached</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer></footer>
+    <script src="scripts/script.js"></script>
+  </body>
+</html>
